@@ -37,7 +37,7 @@ android {
         repositories.mavenInstaller {
             configuration = configurations.default
             pom.groupId = 'miguelooutn'
-            pom.artifactId = 'androidutilities'
+            pom.artifactId = 'androidbaseutilities'
             pom.version = '1.0.0'
         }
     }
