@@ -1,4 +1,4 @@
-package com.baz.logger;
+package com.hybridss.androidbaseutils.logger;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -6,6 +6,8 @@ import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+
+import static com.hybridss.androidbaseutils.logger.LGFileLogger.saveFile;
 
 public class LGLogger {
     public final static int VERBOSE = 0;
@@ -63,7 +65,7 @@ public class LGLogger {
                         .append(mensaje).append("[~~]")
                         .append("\n");
 
-                LGFileLogger.saveFile(logBuilder);
+                saveFile(logBuilder);
             }
         } catch (Exception e) {
             e.printStackTrace();

@@ -1,4 +1,4 @@
-package com.baz.logger;
+package com.hybridss.androidbaseutils.logger;
 
 public class LGTest {
     private static LGTest instance;

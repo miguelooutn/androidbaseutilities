@@ -1,4 +1,4 @@
-package com.baz.logger;
+package com.hybridss.androidbaseutils.logger;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -11,7 +11,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-import static com.baz.logger.LGLogger.PATH;
+import static com.hybridss.androidbaseutils.logger.LGLogger.PATH;
 
 public class LGFileLogger {
     private static final int DEFAULT_LOG_MAX_FILE_SIZE = 1024;  // 1 MB
