@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'maven'
 }
 
 android {
@@ -29,6 +30,16 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+
+    task installArchives(type: Upload) {
+        description "Installs the artifacts to the local Maven repository."
+        repositories.mavenInstaller {
+            configuration = configurations.default
+            pom.groupId = 'miguelooutn'
+            pom.artifactId = 'androidbaseutilities'
+            pom.version = '1.0.0'
+        }
     }
 }
 
