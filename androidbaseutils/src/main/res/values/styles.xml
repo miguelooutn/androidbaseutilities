@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    // Full Screen dialog
+    <style name="FullScreenDialog" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:padding">0dp</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowCloseOnTouchOutside">false</item>
+    </style>
+
+    <!-- buttons -->
+    <style name="general_button" parent="Theme.SGHV1">
+        <item name="background">@drawable/selector_general_button</item>
+        <item name="paddingStart">@dimen/space_middle</item>
+        <item name="paddingEnd">@dimen/space_middle</item>
+        <item name="android:textColor">@color/md_white_1000</item>
+        <item name="android:textSize">@dimen/font_size_middle</item>a
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- texto pequeño  -->
+
+    <style name="text_small" parent="Theme.SGHV1">
+        <item name="android:textSize">@dimen/font_size_small</item>
+        <item name="android:textColor">@color/md_grey_900</item>
+    </style>
+
+    <style name="text_small_bold" parent="Theme.SGHV1">
+        <item name="android:textSize">@dimen/font_size_small</item>
+        <item name="android:textColor">@color/md_grey_900</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="text_small_center" parent="text_small">
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="text_small_center_bold" parent="text_small_bold">
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!-- texto regular  -->
+
+    <style name="text_regular" parent="Theme.SGHV1">
+        <item name="android:textSize">@dimen/font_size_normal</item>
+        <item name="android:textColor">@color/md_grey_900</item>
+    </style>
+
+    <style name="text_regular_bold" parent="Theme.SGHV1">
+        <item name="android:textSize">@dimen/font_size_normal</item>
+        <item name="android:textColor">@color/md_grey_900</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="text_regular_center" parent="text_regular">
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="text_regular_center_bold" parent="text_regular_bold">
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!-- texto subTitulos  -->
+
+    <style name="text_subTitulos" parent="Theme.SGHV1">
+        <item name="android:textSize">@dimen/font_size_middle</item>
+        <item name="android:textColor">@color/md_grey_900</item>
+    </style>
+
+    <style name="text_subTitulos_bold" parent="Theme.SGHV1">
+        <item name="android:textSize">@dimen/font_size_middle</item>
+        <item name="android:textColor">@color/md_grey_900</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="text_subTitulos_center" parent="text_subTitulos">
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="text_subTitulos_center_bold" parent="text_subTitulos_bold">
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!-- texto Titulos  -->
+
+    <style name="text_Titulos" parent="Theme.SGHV1">
+        <item name="android:textSize">@dimen/font_size_large</item>
+        <item name="android:textColor">@color/md_black_1000</item>
+    </style>
+
+    <style name="text_Titulos_bold" parent="Theme.SGHV1">
+        <item name="android:textSize">@dimen/font_size_large</item>
+        <item name="android:textColor">@color/md_black_1000</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="text_Titulos_center" parent="text_Titulos">
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="text_Titulos_center_bold" parent="text_Titulos_bold">
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!-- texto Titulos Alerta -->
+
+    <style name="text_Titulos_Alerta" parent="Theme.SGHV1">
+        <item name="android:textSize">@dimen/font_size_xxlarge</item>
+        <item name="android:textColor">?attr/colorPrimary</item>
+    </style>
+
+    <style name="text_Titulos_Alerta_bold" parent="Theme.SGHV1">
+        <item name="android:textSize">@dimen/font_size_xxlarge</item>
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="text_Titulos_Alerta_center" parent="text_Titulos_Alerta">
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="text_Titulos_Alerta_center_bold" parent="text_Titulos_Alerta_bold">
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!-- TextInputEditText -->
+    <style name="text_input_layout_white"
+        parent="Widget.Design.TextInputLayout">
+        <item name="hintTextAppearance">@style/hintAppearance</item>
+        <item name="android:textColor">@color/md_white_1000</item>
+        <item name="theme">@style/theme_white</item>
+        <item name="hintTextColor">@color/md_white_1000</item>
+        <item name="android:textColorHint">@color/md_white_1000</item>
+    </style>
+
+    <style name="hintAppearance" parent="TextAppearance.Design.Hint">
+        <!-- Floating label appearance here -->
+        <item name="android:textColor">@color/md_white_1000</item>
+
+    </style>
+
+    <style name="theme_white">
+        <item name="colorAccent">@color/md_white_1000</item>
+        <item name="colorControlNormal">@color/md_white_1000</item>
+        <item name="colorControlActivated">@color/md_white_1000</item>
+    </style>
+
+    <style name="NavigationView">
+        <item name="fontFamily">sans-serif</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/md_green_500</item>
+        <item name="android:lineSpacingExtra">8sp</item>
+    </style>
+</resources>
