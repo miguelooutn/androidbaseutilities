@@ -5,9 +5,9 @@ import androidx.lifecycle.ViewModel
 import io.reactivex.disposables.CompositeDisposable
 
 open class BaseViewModel : ViewModel() {
-    val compositeDisposable: CompositeDisposable = CompositeDisposable()
-    val alert: MutableLiveData<String> = MutableLiveData()
-    val loader: MutableLiveData<Boolean> = MutableLiveData()
+    var compositeDisposable: CompositeDisposable = CompositeDisposable()
+    var alert: MutableLiveData<String> = MutableLiveData()
+    var loader: MutableLiveData<Boolean> = MutableLiveData()
 
     fun clearViewModel() {
         onCleared()
