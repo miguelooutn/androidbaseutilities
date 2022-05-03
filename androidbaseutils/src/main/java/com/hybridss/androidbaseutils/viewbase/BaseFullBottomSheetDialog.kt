@@ -9,7 +9,7 @@ import com.google.android.material.R
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 
-class BaseFullBottomSheetDialog : BaseBottomSheetDialog() {
+open class BaseFullBottomSheetDialog : BaseBottomSheetDialog() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val bottomSheetDialog =
             super.onCreateDialog(savedInstanceState) as BottomSheetDialog
