@@ -20,8 +20,9 @@ import com.hybridss.androidbaseutils.R
 import java.util.*
 
 open class BaseActivity : AppCompatActivity() {
-    
-    private var progressDialog: Dialog = Dialog(this)
+
+
+    private lateinit var progressDialog: Dialog
 
     fun mostrarFragmentFade(
         fragmentIn: BaseFragment,
@@ -170,6 +171,8 @@ open class BaseActivity : AppCompatActivity() {
     }
 
     fun progress(it: Boolean) {
+        progressDialog = Dialog(this)
+
         if (it) {
             progressDialog.setContentView(R.layout.dialog_progress)
             progressDialog.setCancelable(false)
