@@ -171,15 +171,13 @@ open class BaseActivity : AppCompatActivity() {
     }
 
     fun progress(it: Boolean) {
-        progressDialog = Dialog(this)
-
         if (it) {
             progressDialog.setContentView(R.layout.dialog_progress)
             progressDialog.setCancelable(false)
             progressDialog.show()
             progressDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         } else {
-            progressDialog.dismiss()
+            if (progressDialog != null) progressDialog.dismiss()
         }
     }
 
