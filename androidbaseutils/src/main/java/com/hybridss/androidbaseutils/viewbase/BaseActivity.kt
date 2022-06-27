@@ -49,7 +49,7 @@ open class BaseActivity : AppCompatActivity() {
             fragmentIn.javaClass.simpleName
         )
         if (addToBackStack) {
-            fragmentTransaction.addToBackStack( fragmentIn.javaClass.simpleName)
+            fragmentTransaction.addToBackStack(fragmentIn.javaClass.simpleName)
         }
         fragmentTransaction.commit()
     }
@@ -130,8 +130,15 @@ open class BaseActivity : AppCompatActivity() {
         activity: Activity,
         textoPositivo: String,
         listenerPositivo: DialogInterface.OnClickListener
-    ){
-        mostrarAlerta(titulo, mensaje, activity, textoPositivo, listenerPositivo,"",DialogInterface.OnClickListener{_,_->})
+    ) {
+        mostrarAlerta(
+            titulo,
+            mensaje,
+            activity,
+            textoPositivo,
+            listenerPositivo,
+            "",
+            DialogInterface.OnClickListener { _, _ -> })
     }
 
     fun mostrarAlerta(
@@ -140,7 +147,7 @@ open class BaseActivity : AppCompatActivity() {
         activity: Activity,
         textoPositivo: String,
         listenerPositivo: DialogInterface.OnClickListener,
-        textoNegativo : String,
+        textoNegativo: String,
         listenerNegativo: DialogInterface.OnClickListener
     ) {
         val builder = AlertDialog.Builder(activity)
@@ -167,18 +174,31 @@ open class BaseActivity : AppCompatActivity() {
         mensaje: String,
         activity: Activity
     ) {
-        mostrarAlerta(titulo, mensaje, activity, "", DialogInterface.OnClickListener { _, _ -> },"",DialogInterface.OnClickListener{_,_->})
+        mostrarAlerta(
+            titulo,
+            mensaje,
+            activity,
+            "",
+            DialogInterface.OnClickListener { _, _ -> },
+            "",
+            DialogInterface.OnClickListener { _, _ -> })
     }
 
     fun progress(it: Boolean) {
-        if (it) {
-            progressDialog = Dialog(this)
-            progressDialog.setContentView(R.layout.dialog_progress)
-            progressDialog.setCancelable(false)
-            progressDialog.show()
-            progressDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        } else {
-            if (progressDialog != null) progressDialog.dismiss()
+        try {
+            if (it) {
+                progressDialog = Dialog(this)
+                progressDialog.setContentView(R.layout.dialog_progress)
+                progressDialog.setCancelable(false)
+                progressDialog.show()
+                progressDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            } else {
+                if (progressDialog.isShowing) {
+                    progressDialog.dismiss()
+                }
+            }
+        } catch (e: Exception) {
+            Log.d(javaClass.simpleName, e.message.toString())
         }
     }
 
