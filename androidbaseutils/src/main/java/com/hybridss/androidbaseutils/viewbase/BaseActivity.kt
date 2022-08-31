@@ -185,20 +185,17 @@ open class BaseActivity : AppCompatActivity() {
     }
 
     fun progress(it: Boolean) {
-        try {
-            if (it) {
-                progressDialog = Dialog(this)
-                progressDialog.setContentView(R.layout.dialog_progress)
-                progressDialog.setCancelable(false)
-                progressDialog.show()
-                progressDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-            } else {
-                if (progressDialog.isShowing) {
-                    progressDialog.dismiss()
-                }
-            }
-        } catch (e: Exception) {
-            Log.d(javaClass.simpleName, e.message.toString())
+        if (progressDialog == null) {
+            progressDialog = Dialog(this)
+            progressDialog.setContentView(R.layout.dialog_progress)
+            progressDialog.setCancelable(false)
+            progressDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        }
+
+        if (progressDialog.isShowing && !it) {
+            progressDialog.dismiss()
+        } else{
+            progressDialog.show()
         }
     }
 
