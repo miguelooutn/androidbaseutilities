@@ -22,7 +22,14 @@ import java.util.*
 open class BaseActivity : AppCompatActivity() {
 
 
-    private lateinit var progressDialog: Dialog
+    private val progressDialog: Dialog
+
+    init {
+        progressDialog = Dialog(this)
+        progressDialog.setContentView(R.layout.dialog_progress)
+        progressDialog.setCancelable(false)
+        progressDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+    }
 
     fun mostrarFragmentFade(
         fragmentIn: BaseFragment,
@@ -185,20 +192,10 @@ open class BaseActivity : AppCompatActivity() {
     }
 
     fun progress(it: Boolean) {
-        try {
-            if (it) {
-                progressDialog = Dialog(this)
-                progressDialog.setContentView(R.layout.dialog_progress)
-                progressDialog.setCancelable(false)
-                progressDialog.show()
-                progressDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-            } else {
-                if (progressDialog.isShowing) {
-                    progressDialog.dismiss()
-                }
-            }
-        } catch (e: Exception) {
-            Log.d(javaClass.simpleName, e.message.toString())
+        if (progressDialog.isShowing && !it) {
+            progressDialog.dismiss()
+        } else{
+            progressDialog.show()
         }
     }
 
