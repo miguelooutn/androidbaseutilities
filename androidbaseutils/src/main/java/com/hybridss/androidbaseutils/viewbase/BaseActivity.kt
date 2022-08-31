@@ -22,7 +22,14 @@ import java.util.*
 open class BaseActivity : AppCompatActivity() {
 
 
-    private lateinit var progressDialog: Dialog
+    private val progressDialog: Dialog
+
+    init {
+        progressDialog = Dialog(this)
+        progressDialog.setContentView(R.layout.dialog_progress)
+        progressDialog.setCancelable(false)
+        progressDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+    }
 
     fun mostrarFragmentFade(
         fragmentIn: BaseFragment,
@@ -49,7 +56,7 @@ open class BaseActivity : AppCompatActivity() {
             fragmentIn.javaClass.simpleName
         )
         if (addToBackStack) {
-            fragmentTransaction.addToBackStack( fragmentIn.javaClass.simpleName)
+            fragmentTransaction.addToBackStack(fragmentIn.javaClass.simpleName)
         }
         fragmentTransaction.commit()
     }
@@ -130,8 +137,15 @@ open class BaseActivity : AppCompatActivity() {
         activity: Activity,
         textoPositivo: String,
         listenerPositivo: DialogInterface.OnClickListener
-    ){
-        mostrarAlerta(titulo, mensaje, activity, textoPositivo, listenerPositivo,"",DialogInterface.OnClickListener{_,_->})
+    ) {
+        mostrarAlerta(
+            titulo,
+            mensaje,
+            activity,
+            textoPositivo,
+            listenerPositivo,
+            "",
+            DialogInterface.OnClickListener { _, _ -> })
     }
 
     fun mostrarAlerta(
@@ -140,7 +154,7 @@ open class BaseActivity : AppCompatActivity() {
         activity: Activity,
         textoPositivo: String,
         listenerPositivo: DialogInterface.OnClickListener,
-        textoNegativo : String,
+        textoNegativo: String,
         listenerNegativo: DialogInterface.OnClickListener
     ) {
         val builder = AlertDialog.Builder(activity)
@@ -167,18 +181,21 @@ open class BaseActivity : AppCompatActivity() {
         mensaje: String,
         activity: Activity
     ) {
-        mostrarAlerta(titulo, mensaje, activity, "", DialogInterface.OnClickListener { _, _ -> },"",DialogInterface.OnClickListener{_,_->})
+        mostrarAlerta(
+            titulo,
+            mensaje,
+            activity,
+            "",
+            DialogInterface.OnClickListener { _, _ -> },
+            "",
+            DialogInterface.OnClickListener { _, _ -> })
     }
 
     fun progress(it: Boolean) {
-        if (it) {
-            progressDialog = Dialog(this)
-            progressDialog.setContentView(R.layout.dialog_progress)
-            progressDialog.setCancelable(false)
+        if (progressDialog.isShowing && !it) {
+            progressDialog.dismiss()
+        } else{
             progressDialog.show()
-            progressDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        } else {
-            if (progressDialog != null) progressDialog.dismiss()
         }
     }
 
