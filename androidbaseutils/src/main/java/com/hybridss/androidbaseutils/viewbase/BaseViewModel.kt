@@ -6,8 +6,8 @@ import io.reactivex.disposables.CompositeDisposable
 
 open class BaseViewModel : ViewModel() {
     var compositeDisposable: CompositeDisposable = CompositeDisposable()
-    var alert: MutableLiveData<String> = MutableLiveData()
-    var loader: MutableLiveData<Boolean> = MutableLiveData()
+    var alert: SingleLiveEvent<String> = SingleLiveEvent()
+    var loader: SingleLiveEvent<Boolean> = SingleLiveEvent()
 
     fun clearViewModel() {
         onCleared()
